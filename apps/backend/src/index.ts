@@ -29,3 +29,4 @@ process.on('SIGTERM', () => {
 process.on('SIGINT', () => {
     shutdown({ signal: 'SIGINT' });
 });
+
