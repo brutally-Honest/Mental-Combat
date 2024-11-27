@@ -1,7 +1,8 @@
 import express from 'express';
 import cors from "cors"
-import { errorHandler } from '../utils/error-handler';
-import { routeGuard } from '../utils/routeHandler';
+import { routeGuard } from '../shared/middleware/routeHandler';
+import { errorHandler } from '../shared/middleware/errorHandler';
+import { apiRoute } from './routes';
 
 export const createApp = () => {
 
@@ -15,6 +16,7 @@ export const createApp = () => {
             routeGuard(async (_, res) => {
                 res.json({ message: "Good to GO 👍" })
             }))
+        .use('/api', apiRoute)
         .use(errorHandler)
 
     return app

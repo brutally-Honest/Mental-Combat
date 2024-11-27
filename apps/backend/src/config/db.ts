@@ -1,5 +1,5 @@
 import { connect } from "mongoose";
-import { shutdown } from "../utils/shutdown";
+import { shutdown } from "../shared/utils/shutdown";
 import { __ } from "./env";
 
 

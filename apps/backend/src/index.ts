@@ -1,5 +1,5 @@
 import { createApp } from './server/app';
-import { shutdown } from './utils/shutdown';
+import { shutdown } from './shared/utils/shutdown';
 import { configureDB } from './config/db';
 import { __ } from './config/env';
 
@@ -22,6 +22,7 @@ app.listen(__.PORT, () => {
 process.on('SIGTERM', () => {
     shutdown({ signal: 'SIGTERM' });
 });
+
 process.on('SIGINT', () => {
     shutdown({ signal: 'SIGINT' });
 });

@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction, RequestHandler } from 'express';
-import { APIError } from './error';
+import { APIError } from '../utils/error';
 
 interface WrapperOptions {
     customErrorHandler?: (error: any, req: Request, res: Response, next: NextFunction) => void;
@@ -7,12 +7,6 @@ interface WrapperOptions {
 
 type AsyncHandler = (req: Request, res: Response, next: NextFunction) => Promise<any>;
 
-/**
- * A type-safe async wrapper for Express route handlers.
- * @param handler - The async route handler function.
- * @param options - Optional configuration, including logging and custom error handling.
- * @returns A wrapped handler with error handling.
- */
 export const routeGuard = (handler: AsyncHandler, options: WrapperOptions = {}): RequestHandler => {
     const { customErrorHandler } = options;
 
