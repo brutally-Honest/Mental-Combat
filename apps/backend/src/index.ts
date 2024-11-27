@@ -15,10 +15,6 @@ process.on('uncaughtException', (error) => {
     shutdown({ error, signal: 'uncaughtException' });
 });
 
-app.get("/", (req, res) => {
-    res.json({ message: "Good to GO 👍" })
-})
-
 app.listen(__.PORT, () => {
     console.log(`Live at http://localhost:${__.PORT}`)
 });
